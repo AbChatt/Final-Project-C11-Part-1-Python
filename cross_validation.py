@@ -19,6 +19,8 @@ E. Franco, B. Chan, D. Fleet
 
 import numpy as np
 
+import math
+
 from utils import mean_squared_error
 
 class CrossValidation:
@@ -70,11 +72,11 @@ class CrossValidation:
         # TODO: Implement your solution within the box
         # Create training and validation sets.
 
-        V = self.val_percent * (np.shape(X))[0]
+        V = math.floor(self.val_percent * (np.shape(X))[0])
         T = (np.shape(X))[0] - V
 
-        val_X = np.ndarray(shape = (V, (np.shape(X))[1]))
-        train_X = np.ndarray(shape = (T, (np.shape(X))[0]))
+        val_X = np.ndarray(shape = (V, np.shape(X)[1]))
+        train_X = np.ndarray(shape = (T, np.shape(X)[0]))
 
         train_X = X[:T]
         train_y = y[:T]

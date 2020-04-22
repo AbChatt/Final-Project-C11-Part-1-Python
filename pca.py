@@ -153,6 +153,7 @@ class PCA:
         fractions = np.ndarray(shape = (self.D+1, ))
         total_variance = np.sum(self.w)
         variance_per_dimension = plot_variance_per_subspace(self)   # check if this does what is expected
+        print(np.shape(variance_per_dimension))
 
         for i in range(self.D+1):
             fractions[i] = variance_per_dimension[i] / total_variance   # what about K=0 case?
