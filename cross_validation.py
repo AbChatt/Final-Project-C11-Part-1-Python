@@ -69,6 +69,17 @@ class CrossValidation:
         # ====================================================
         # TODO: Implement your solution within the box
         # Create training and validation sets.
+
+        V = self.val_percent * (np.shape(X))[0]
+        T = (np.shape(X))[0] - V
+
+        val_X = np.ndarray(shape = (V, (np.shape(X))[1]))
+        train_X = np.ndarray(shape = (T, (np.shape(X))[0]))
+
+        train_X = X[:T]
+        train_y = y[:T]
+        val_X = X[T + 1:]
+        val_y = y[T + 1:]
         
         # ====================================================
 
