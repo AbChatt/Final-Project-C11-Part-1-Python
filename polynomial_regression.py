@@ -5,14 +5,14 @@ B. Chan, E. Franco, D. Fleet
 ===========================================================
  COMPLETE THIS TEXT BOX:
 
- Student Name:
- Student number:
- UtorID:
+ Student Name: Abhishek Chatterjee
+ Student number: 1004820615
+ UtorID: chatt114
 
  I hereby certify that the work contained here is my own
 
 
- ____________________
+ _Abhishek Chatterjee_
  (sign with your name)
 ===========================================================
 """
@@ -70,6 +70,10 @@ class PolynomialRegression:
         # ====================================================
         # TODO: Implement your solution within the box
 
+        # B matrix is Vandermonde matrix with feature vectors 
+
+        B = np.vander(X.flatten(), self.K+1, True)
+
         # ====================================================
            
         return B
@@ -88,6 +92,9 @@ class PolynomialRegression:
 
         # ====================================================
         # TODO: Implement your solution within the box
+
+        B = transform_matrix(self, X)   # check if this behaves as expected
+        pred = np.matmul(B, self.parameters)
 
         # ====================================================
 
@@ -111,5 +118,11 @@ class PolynomialRegression:
 
         # ====================================================
         # TODO: Implement your solution within the box
+
+        B = transform_matrix(self, train_X)     # check if this behaves as expected
+        p1 = np.linalg.inv(np.matmul(B.T, B))
+        p2 = np.matmul(B.T, train_y)
+
+        self.parameters = np.matmul(p1, p2)
 
         # ====================================================
