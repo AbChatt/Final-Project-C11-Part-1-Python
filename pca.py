@@ -157,8 +157,6 @@ class PCA:
         for i in range(self.D+1):
             fractions[i] = variance_per_dimension[i] / total_variance   # what about K=0 case?
 
-        return fractions
-
         # ====================================================
         assert fractions.shape == (self.D + 1,), f"fractions shape mismatch. Expected: {(self.D + 1,)}. Got: {fractions.shape}"
 
