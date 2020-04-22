@@ -121,6 +121,12 @@ class PCA:
         # ====================================================
         # TODO: Implement your solution within the box
 
+        variances = np.ndarray(shape = (self.D, ))      # check if we need to specify dtype
+        for i in range(self.D):
+            variances[i] = self.w[self.D - i]
+        
+        return variances
+
         # ====================================================
         assert variances.shape == (self.D,), f"variances shape mismatch. Expected: {(self.D,)}. Got: {variances.shape}"
 
@@ -138,11 +144,14 @@ class PCA:
         NOTE: Include the case when K=0.
 
         Output:
-        - fractions (ndarray (shape: (D,))): D-column vector corresponding to the fractions of the total variance.
+        - fractions (ndarray (shape: (D+1,))): D+1-column vector corresponding to the fractions of the total variance.
         """
 
         # ====================================================
         # TODO: Implement your solution within the box
+
+        fractions = np.ndarray(shape = (self.D+1, ))
+        
 
         # ====================================================
         assert fractions.shape == (self.D + 1,), f"fractions shape mismatch. Expected: {(self.D + 1,)}. Got: {fractions.shape}"
