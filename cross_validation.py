@@ -117,7 +117,7 @@ class CrossValidation:
         pred_vals_val = model.predict(model, val_X)
 
         # calculate errors
-        training_error = mean_squared_error(pred_vals_train, train_y)      # change this value
+        training_error = mean_squared_error(pred_vals_train, train_y)
         validation_error = mean_squared_error(pred_vals_val, val_y) 
 
         # ====================================================

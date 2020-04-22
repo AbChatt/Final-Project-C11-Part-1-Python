@@ -124,8 +124,6 @@ class PCA:
         variances = np.ndarray(shape = (self.D, ))      # check if we need to specify dtype
         for i in range(self.D):
             variances[i] = self.w[self.D - i]           # w is flipped
-        
-        return variances
 
         # ====================================================
         assert variances.shape == (self.D,), f"variances shape mismatch. Expected: {(self.D,)}. Got: {variances.shape}"
@@ -155,8 +153,10 @@ class PCA:
         variance_per_dimension = plot_variance_per_subspace(self)   # check if this does what is expected
         print(np.shape(variance_per_dimension))
 
-        for i in range(self.D+1):
-            fractions[i] = variance_per_dimension[i] / total_variance   # what about K=0 case?
+        fractions[0] = 0
+
+        for i in range(self.D):
+            fractions[i + 1] = variance_per_dimension[i] / total_variance   # what about K=0 case?
 
         # ====================================================
         assert fractions.shape == (self.D + 1,), f"fractions shape mismatch. Expected: {(self.D + 1,)}. Got: {fractions.shape}"
