@@ -1,0 +1,23 @@
+===========================================================
+ COMPLETE THIS TEXT BOX:
+
+ Student Name:
+ Student number:
+ UtorID:
+
+ I hereby certify that the work contained here is my own
+(Moss will automatically be run on all submitted and answers)
+
+
+ ____________________
+ (sign with your name)
+===========================================================
+
+Answer The Following Questions:
+
+1. How many Principal Components do you think is needed to give the best fit to the model?
+
+2. How did you decide this was a good choice and why?
+
+3. Why would dimensionality reduction help produce a better model?
+
