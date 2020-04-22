@@ -107,17 +107,18 @@ class CrossValidation:
         # TODO: Implement your solution within the box
         # Compute training and validation errors.
 
-        # assume we are using LOOCV score function
+        # assume we are using MSE as our CV error formula (since we have MSE function)
 
         # train model
         model.fit(model, train_X, train_y)
 
         # predict values
-        pred_vals = model.predict(model, val_X)
+        pred_vals_train = model.predict(model, train_X)
+        pred_vals_val = model.predict(model, val_X)
 
         # calculate errors
-        training_error = 0
-        validation_error = 0    # change these values
+        training_error = mean_squared_error(pred_vals_train, train_y)      # change this value
+        validation_error = mean_squared_error(pred_vals_val, val_y) 
 
         # ====================================================
 
