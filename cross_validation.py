@@ -107,6 +107,18 @@ class CrossValidation:
         # TODO: Implement your solution within the box
         # Compute training and validation errors.
 
+        # assume we are using LOOCV score function
+
+        # train model
+        model.fit(model, train_X, train_y)
+
+        # predict values
+        pred_vals = model.predict(model, val_X)
+
+        # calculate errors
+        training_error = 0
+        validation_error = 0    # change these values
+
         # ====================================================
 
         return training_error, validation_error
