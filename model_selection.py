@@ -90,8 +90,8 @@ def model_selection(model, X, y, seed=0, title='PCS vs Cross Validation Scores',
 
     cv_scores = []
 
-    for i in range(1, D+1):
-        cv_scores.append((training_errors[i - 1] + validation_errors[i - 1]) / i)   # LOOCV score function
+    for i in range(D):
+        cv_scores.append((training_errors[i] + validation_errors[i]) / 2)   # Use mean as CV score formula
 
     best_cv_idx = cv_scores.index(min(cv_scores))
     # ====================================================

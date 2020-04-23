@@ -123,7 +123,7 @@ class PCA:
 
         variances = np.ndarray(shape = (self.D, ))      # check if we need to specify dtype
         for i in range(self.D):
-            variances[i] = self.w[self.D - i - 1]           # w is flipped
+            variances[i] = self.w[i]           # w is flipped
 
         # ====================================================
         assert variances.shape == (self.D,), f"variances shape mismatch. Expected: {(self.D,)}. Got: {variances.shape}"
@@ -151,9 +151,8 @@ class PCA:
         fractions = np.ndarray(shape = (self.D+1, ))
         total_variance = np.sum(self.w)
         variance_per_dimension = self.plot_variance_per_subspace()   
-        print(np.shape(variance_per_dimension))
 
-        fractions[0] = 0
+        fractions[0] = float('inf')     # point estimation -> infinite variance
         j = 1
 
         for i in range(self.D):

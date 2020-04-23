@@ -72,7 +72,12 @@ class PolynomialRegression:
 
         # B matrix is Vandermonde matrix with feature vectors 
 
-        B = np.vander(X.flatten(), self.K+1, True)
+        linear_X = np.ndarray(shape = (N, 1))
+
+        for i in range(N):
+            linear_X[i] = np.linalg.norm(X[i], axis=0)
+
+        B = np.vander(linear_X.flatten(), self.K+1, True)
 
         # ====================================================
            
@@ -119,10 +124,9 @@ class PolynomialRegression:
         # ====================================================
         # TODO: Implement your solution within the box
 
-        B = self.transform_matrix(train_X)     # check if this behaves as expected
-        p1 = np.linalg.inv(np.matmul(B.T, B))
-        p2 = np.matmul(B.T, train_y)
+        B = self.transform_matrix(train_X)     
+        p1 = np.linalg.pinv(B)
 
-        self.parameters = np.matmul(p1, p2)
+        self.parameters = np.matmul(p1, train_y)
 
         # ====================================================
