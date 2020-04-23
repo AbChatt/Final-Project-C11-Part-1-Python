@@ -88,12 +88,10 @@ def model_selection(model, X, y, seed=0, title='PCS vs Cross Validation Scores',
     # TODO: Implement your solution within the box
     # Assign cv_scores and compute index of the best cross validation score.
 
-    cv_scores = []
-
-    for i in range(D):
-        cv_scores.append((training_errors[i] + validation_errors[i]) / 2)   # Use mean as CV score formula
+    cv_scores = validation_errors
 
     best_cv_idx = cv_scores.index(min(cv_scores))
+
     # ====================================================
 
     print(f"Model: {title}")
