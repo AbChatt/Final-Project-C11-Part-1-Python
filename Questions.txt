@@ -1,23 +1,26 @@
 ===========================================================
  COMPLETE THIS TEXT BOX:
 
- Student Name:
- Student number:
- UtorID:
+ Student Name: Abhishek Chatterjee
+ Student number: 1004820615
+ UtorID: chatt114
 
  I hereby certify that the work contained here is my own
 (Moss will automatically be run on all submitted and answers)
 
 
- ____________________
+ _Abhishek Chatterjee_
  (sign with your name)
 ===========================================================
 
 Answer The Following Questions:
 
 1. How many Principal Components do you think is needed to give the best fit to the model?
+2 principal components are needed to give the best fit to the model
 
 2. How did you decide this was a good choice and why?
+Lowest cross-validation score which was the mean between the training and validation errors -> on average, a model trained on 2 component data had the highest accuracy
 
 3. Why would dimensionality reduction help produce a better model?
+Reduces overall complexity of the model -> less computationally intensive to fit / predict. For instance, for N data points, an N-1 dimensional model will fit data as well as an N dimensional model to within numerical error. However, if we can obtain a reasonably good fit with a much lower dimensional model, we would prefer it as lower dimensional models won't suffer from overfitting
 
