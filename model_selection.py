@@ -64,14 +64,7 @@ def model_selection(model, X, y, seed=0, title='PCS vs Cross Validation Scores',
     # NOTE: You should only apply PCA once here and not in the loop below.
 
     pca = PCA
-    pca._compute_components(pca, X)                               # updates components
-
-    low_dim_train = []
-    low_dim_val = []
-
-    for i in range(1, D + 1):
-        low_dim_train.append(pca.reduce_dimensionality(pca, train_X, i))    # make K's value change dynamically
-        low_dim_val.append(pca.reduce_dimensionality(pca, val_X, i))
+    pca._compute_components(pca, train_X)                               # updates components
 
     # ====================================================
 
@@ -84,7 +77,7 @@ def model_selection(model, X, y, seed=0, title='PCS vs Cross Validation Scores',
         # TODO: Implement your solution within the box
         # Receive training and validation errors
 
-        training_error, validation_error = cv.compute_errors(model, low_dim_train[reduce_dim - 1], train_y, low_dim_val[reduce_dim] - 1, val_y)
+        training_error, validation_error = cv.compute_errors(model, pca.reduce_dimensionality(pca, train_X, reduce_dim), train_y, pca.reduce_dimensionality(pca, val_X, reduce_dim), val_y)
 
         # ====================================================
 
@@ -96,7 +89,11 @@ def model_selection(model, X, y, seed=0, title='PCS vs Cross Validation Scores',
     # Assign cv_scores and compute index of the best cross validation score.
 
     cv_scores = []
-    
+
+    for i in range(1, D+1):
+        cv_scores.append((training_errors[i - 1] + validation_errors[i - 1]) / i)   # LOOCV score function
+
+    best_cv_idx = cv_scores.index(min(cv_scores))
     # ====================================================
 
     print(f"Model: {title}")
