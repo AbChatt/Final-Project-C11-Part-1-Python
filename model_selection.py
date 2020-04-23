@@ -63,8 +63,8 @@ def model_selection(model, X, y, seed=0, title='PCS vs Cross Validation Scores',
     # NOTE: Assign the PCA object to a variable called pca (as used in the if statement below).
     # NOTE: You should only apply PCA once here and not in the loop below.
 
-    pca = PCA
-    pca._compute_components(pca, train_X)                               # updates components
+    pca = PCA(train_X)
+    pca._compute_components(train_X)                               # updates components
 
     # ====================================================
 
