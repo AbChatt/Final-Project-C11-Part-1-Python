@@ -77,7 +77,7 @@ def model_selection(model, X, y, seed=0, title='PCS vs Cross Validation Scores',
         # TODO: Implement your solution within the box
         # Receive training and validation errors
 
-        training_error, validation_error = cv.compute_errors(model, pca.reduce_dimensionality(pca, train_X, reduce_dim), train_y, pca.reduce_dimensionality(pca, val_X, reduce_dim), val_y)
+        training_error, validation_error = cv.compute_errors(model, pca.reduce_dimensionality(train_X, reduce_dim), train_y, pca.reduce_dimensionality(val_X, reduce_dim), val_y)
 
         # ====================================================
 

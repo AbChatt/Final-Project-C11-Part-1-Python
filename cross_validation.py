@@ -110,11 +110,11 @@ class CrossValidation:
         # assume we are using MSE as our CV error formula (since we have MSE function)
 
         # train model
-        model.fit(model, train_X, train_y)
+        model.fit(train_X, train_y)
 
         # predict values
-        pred_vals_train = model.predict(model, train_X)
-        pred_vals_val = model.predict(model, val_X)
+        pred_vals_train = model.predict(train_X)
+        pred_vals_val = model.predict(val_X)
 
         # calculate errors
         training_error = mean_squared_error(pred_vals_train, train_y)
