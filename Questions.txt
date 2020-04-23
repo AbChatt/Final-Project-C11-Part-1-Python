@@ -16,10 +16,10 @@
 Answer The Following Questions:
 
 1. How many Principal Components do you think is needed to give the best fit to the model?
-2 principal components are needed to give the best fit to the model
+2 principal components are needed to give the best fit to the model. While the linear model recommends 3, upon close examination of the graphs, the difference is negligible compared to if we chose 3 components for the quadratic model
 
 2. How did you decide this was a good choice and why?
-Lowest cross-validation score which was the mean between the training and validation errors -> on average, a model trained on 2 component data had the highest accuracy
+Lowest cross-validation score which was the mean between the training and validation errors -> on average, a model trained on 2 component data had the highest accuracy. While this was not the case for the linear model (which had a very slightly lower score at 3 components), it was within numerical error
 
 3. Why would dimensionality reduction help produce a better model?
 Reduces overall complexity of the model -> less computationally intensive to fit / predict. For instance, for N data points, an N-1 dimensional model will fit data as well as an N dimensional model to within numerical error. However, if we can obtain a reasonably good fit with a much lower dimensional model, we would prefer it as lower dimensional models won't suffer from overfitting

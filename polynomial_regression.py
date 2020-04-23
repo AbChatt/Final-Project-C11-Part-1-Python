@@ -75,7 +75,7 @@ class PolynomialRegression:
         linear_X = np.ndarray(shape = (N, 1))
 
         for i in range(N):
-            linear_X[i] = np.linalg.norm(X[i], axis=0)
+            linear_X[i] = np.linalg.norm(X[i], ord=2, axis=0)   # computing 2-norm of matrix
 
         B = np.vander(linear_X.flatten(), self.K+1, True)
 

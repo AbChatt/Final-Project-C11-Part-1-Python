@@ -65,7 +65,6 @@ def model_selection(model, X, y, seed=0, title='PCS vs Cross Validation Scores',
 
     pca = PCA(train_X)
     pca._compute_components(train_X)                               # updates components
-
     # ====================================================
 
     if visualize_variance:
